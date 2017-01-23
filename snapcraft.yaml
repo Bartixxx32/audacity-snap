@@ -1,0 +1,24 @@
+name: audacity
+version: '0.1'
+summary: Audacity is free, audio software for multi-track recording and editing.
+description: |
+    Audacity is a free, easy-to-use, multi-track audio editor and recorder for Windows, Mac OS X, GNU/Linux and other operating systems. The interface is translated into many languages.
+grade: stable
+confinement: strict
+
+parts:
+  archives:
+    plugin: nil
+    stage-packages:
+      - audacity
+  env:
+    plugin: dump
+    organize:
+      audacity.wrapper: usr/bin/audacity
+
+apps:
+  audacity:
+    command: audacity
+    plugs:
+      - x11
+      - pulseaudio
